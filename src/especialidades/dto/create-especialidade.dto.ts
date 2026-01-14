@@ -1,6 +1,4 @@
-// src/especialidades/dto/create-especialidad.dto.ts
-
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty } from "class-validator"; 
 
     
 export class CreateEspecialidadDto {

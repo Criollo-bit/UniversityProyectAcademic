@@ -10,5 +10,5 @@ export class CreateMatriculaDto {
   materiaId!: number;   
   @IsString()
   @IsNotEmpty()
-  periodoAcademico!: string; // Ejemplo: "2024-I"
+  periodoAcademico!: string;
 }

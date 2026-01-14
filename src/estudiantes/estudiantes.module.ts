@@ -8,4 +8,4 @@ import { PrismaEstudiantesService } from '../prisma/prisma-estudiantes.service';
   providers: [EstudiantesService, PrismaEstudiantesService],
   exports: [EstudiantesService],
 })
-export class EstudiantesModule {} // Asegúrate de que esta línea esté al final
+export class EstudiantesModule {}

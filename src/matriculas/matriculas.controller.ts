@@ -1,20 +1,25 @@
-import { Controller, Post, Body, UseGuards, Get} from '@nestjs/common';
+import { Controller, Post, Body, Get, Param, Query } from '@nestjs/common';
 import { MatriculasService } from './matriculas.service';
-import { CreateMatriculaDto } from './dto/create-matricula.dto';
-import { AuthGuard } from '@nestjs/passport';
-
+ 
 @Controller('matriculas')
 export class MatriculasController {
   constructor(private readonly matriculasService: MatriculasService) {}
 
   @Post()
   async matricular(@Body() data: any) {
-    // Ahora este nombre coincide con el del Service
-    return this.matriculasService.matricular(data);
+    return this.matriculasService.matricular(data); 
   }
 
   @Get()
   findAll() {
     return this.matriculasService.findAll();
+  }
+
+  @Get('reporte/:estudianteId')
+  buscarPorEstudianteYPeriodo(
+    @Param('estudianteId') estudianteId: string,
+    @Query('periodo') periodo: string
+  ) {
+    return this.matriculasService.buscarPorEstudianteYPeriodo(+estudianteId, periodo);
   }
 }

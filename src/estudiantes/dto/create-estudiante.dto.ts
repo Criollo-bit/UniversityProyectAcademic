@@ -1,6 +1,4 @@
-// src/estudiantes/dto/create-estudiante.dto.ts
-
-import { IsNotEmpty, IsEmail } from "class-validator";
+import { IsNotEmpty, IsEmail } from "class-validator"; 
 
     
 export class CreateEstudianteDto {

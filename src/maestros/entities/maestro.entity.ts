@@ -15,7 +15,7 @@ export class Maestro {
   @Column({ nullable: true })
   especialidadId!: number;
 
-  @Column({ default: 'TIEMPO COMPLETO' }) // Para la Parte 2 (Filtros AND/OR)
+  @Column({ default: 'TIEMPO COMPLETO' })
   tipoContrato!: string;
 
   @Column({ default: true })

@@ -1,5 +1,4 @@
-// src/maestros/dto/create-maestro.dto.ts
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty } from 'class-validator'; 
 export class CreateMaestroDto {
   nombre!: string;
   apellido!: string;

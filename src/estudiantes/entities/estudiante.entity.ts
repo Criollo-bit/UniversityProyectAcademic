@@ -12,7 +12,7 @@ export class Estudiante {
   @Column({ unique: true })
   email!: string;
 
-  @Column({ default: 'ACTIVO' }) // Para la Parte 1 y 2
+  @Column({ default: 'ACTIVO' })
   estado!: string;
 
   @ManyToOne(() => Carrera, (carrera) => carrera.estudiantes)

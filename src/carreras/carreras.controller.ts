@@ -3,7 +3,7 @@ import { CarrerasService } from './carreras.service';
 import { CreateCarreraDto } from './dto/create-carrera.dto';
 import { UpdateCarreraDto } from './dto/update-carrera.dto';
 
-@Controller('carreras') // ruta base en plural
+@Controller('carreras')
 export class CarrerasController {
   constructor(private readonly carrerasService: CarrerasService) {}
 

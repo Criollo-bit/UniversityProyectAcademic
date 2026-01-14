@@ -3,7 +3,7 @@ import { CiclosService } from './ciclos.service';
 import { CreateCicloDto } from './dto/create-ciclo.dto';
 import { UpdateCicloDto } from './dto/update-ciclo.dto';
 
-@Controller('ciclos') // ruta base en plural
+@Controller('ciclos')
 export class CiclosController {
   constructor(private readonly ciclosService: CiclosService) {}
 

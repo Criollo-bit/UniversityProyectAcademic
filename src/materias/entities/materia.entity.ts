@@ -10,7 +10,7 @@ export class Materia {
   @Column()
   nombre!: string;
 
-  @Column({ default: 30 }) // Para la Parte 4 (Cupos)
+  @Column({ default: 30 })
   cupos!: number;
 
   @ManyToOne(() => Carrera, (carrera) => carrera.materias)

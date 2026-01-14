@@ -3,14 +3,11 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-
-// Importaciones locales
+import { ConfigModule, ConfigService } from '@nestjs/config'; 
 import { JwtStrategy } from './jwt.strategy'; 
 
 @Module({
-  imports: [
-    // 🚀 CORRECCIÓN: Importamos ConfigModule para que JwtStrategy pueda acceder a ConfigService.
+  imports: [ 
     ConfigModule, 
     
     PassportModule.register({ defaultStrategy: 'jwt' }),

@@ -30,13 +30,10 @@ export class MateriasController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.materiasService.remove(+id);
-  }
-
-  // Se eliminó el @Post() duplicado. 
-  // Si necesitas un método para matricular en una materia específica:
+  } 
+ 
   @Post(':id/matricular')
-  async matricular(@Param('id') id: string, @Body() data: any) {
-    // CORRECCIÓN: Usar materiasService (con 'e') que es el que está en el constructor
-    return this.materiasService.matricular(+id, data); 
+  async matricular(@Param('id') id: string, @Body() data: any) { 
+    return this.materiasService.matricular(+id, data);  
   }
 }

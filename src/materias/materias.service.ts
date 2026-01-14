@@ -1,12 +1,10 @@
 import { Injectable } from '@nestjs/common';
-// 1. IMPORTANTE: Usar el servicio de la base de datos académica
-import { PrismaAcademicoService } from '../prisma/prisma-academico.service'; 
+import { PrismaAcademicoService } from '../prisma/prisma-academico.service';  
 import { CreateMateriaDto } from './dto/create-materia.dto';
 import { UpdateMateriaDto } from './dto/update-materia.dto';
 
 @Injectable()
-export class MateriasService {
-  // 2. Inyectar el servicio correcto en el constructor
+export class MateriasService { 
   constructor(private prisma: PrismaAcademicoService) {}
 
   async create(data: CreateMateriaDto) {
@@ -28,10 +26,8 @@ export class MateriasService {
   async remove(id: number) {
     return this.prisma.materia.delete({ where: { id } });
   }
-
-  // 3. AGREGAR MÉTODO: Este es el que faltaba y causaba el error en el controller
-  async matricular(id: number, data: any) {
-    // Aquí podrías agregar lógica para verificar cupos antes de retornar
+ 
+  async matricular(id: number, data: any) { 
     return {
       message: `Registro de intención de matrícula exitoso para materia ID: ${id}`,
       materiaId: id,

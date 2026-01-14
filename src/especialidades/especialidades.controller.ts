@@ -3,7 +3,7 @@ import { EspecialidadesService } from './especialidades.service';
 import { CreateEspecialidadDto } from './dto/create-especialidade.dto';
 import { UpdateEspecialidadDto } from './dto/update-especialidade.dto';
 
-@Controller('especialidades') // ruta base en plural
+@Controller('especialidades')
 export class EspecialidadesController {
   constructor(private readonly especialidadesService: EspecialidadesService) {}
 

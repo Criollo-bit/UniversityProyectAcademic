@@ -7,7 +7,7 @@ import { Pool } from 'pg';
 export class PrismaAcademicoService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
   constructor() {
     const pool = new Pool({ 
-      connectionString: "postgresql://postgres:090306@localhost:5432/academico_db?schema=public" 
+      connectionString: "postgresql://postgres:123456@localhost:5432/EducationalDataBase?schema=public" 
     });
     super({ adapter: new PrismaPg(pool) } as any);
   }
