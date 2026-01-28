@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/@prisma/client/academico"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Teacher {
+  id              Int      @id @default(autoincrement())
+  name            String
+  lastName        String   @default("")
+  email        String    @unique
+  contractType    String   @default("TIEMPO COMPLETO")
+  isActive        Boolean  @default(true)
+  careerId        Int?
+}
+
+model Subject {
+  id        Int    @id @default(autoincrement())
+  name      String
+  capacity  Int    @default(30)
+  careerId  Int
+  teacherId Int?
+}
+
+model Specialty {
+  id     Int    @id @default(autoincrement())
+  name   String
+}
+
+model Career {
+  id     Int    @id @default(autoincrement())
+  name   String
+}

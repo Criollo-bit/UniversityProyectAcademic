@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/@prisma/client/estudiantes"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Student {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  status    String   @default("ACTIVO")
+  careerId  Int?    
+}

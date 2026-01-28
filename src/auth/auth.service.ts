@@ -1,5 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { UsersService } from '../users/users.service'; // Importamos el servicio de usuarios
+
 interface JwtPayload {
   userId: number;
   username: string;
@@ -9,23 +11,24 @@ interface JwtPayload {
 export class AuthService {
   constructor(
     private jwtService: JwtService,
+    private usersService: UsersService, // Inyectamos el servicio
   ) {}
 
- 
   async validateUser(username: string, pass: string): Promise<any> {
-    const user = { userId: 1, username: 'admin', password: 'hashed_password' };
+    // Buscamos al usuario real en la base de datos
+    const user = await this.usersService.findByUsername(username);
     
-    // Lógica para comparar la contraseña
-    if (user && pass === '123456') {
+    // Comparamos con la contraseña que enviaste (password123)
+    if (user && user.password === pass) {
       const { password, ...result } = user;
       return result; 
     }
     return null;
-  }
-
+  } 
 
   async login(user: any) {
-    const payload: JwtPayload = { username: user.username, userId: user.userId };
+    // Usamos el ID real de la base de datos (user.id)
+    const payload: JwtPayload = { username: user.username, userId: user.id };
     return {
       access_token: this.jwtService.sign(payload),
     };
